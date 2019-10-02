@@ -1,5 +1,5 @@
 
-public class ExceptionHandling {
+public class ExceptionHandling{
 
 	
 	public static void main(String[] args) {
@@ -15,17 +15,42 @@ public class ExceptionHandling {
 
 		int a = 5;
 		int b = 0;
-		int div = a/b;
+		try{
+			int div = a/b;
+		}catch(ArithmeticException e){
+			e.printStackTrace();
+		}
 		
 		int[] arr = new int[5];
-		arr[5] = 7;
+		try{
+			arr[5] = 7;
+		}catch(ArrayIndexOutOfBoundsException e){
+			e.printStackTrace();
+		}
 		
 		String one = "one";
-		int i = Integer.parseInt(one);
+		try{
+			int i = Integer.parseInt(one);
+		}catch(NumberFormatException e){
+			e.printStackTrace();
+		}
 		
-		double c = -7.0;
-		double d = Math.sqrt(c);
-		System.out.println(d);
+		try{
+			
+			double d = negativeNumber(-25);
+		}catch(NegativeSquareRootException e){
+			e.printStackTrace();
+		}
+		
+	}
+
+	public static double negativeNumber(double x) throws NegativeSquareRootException{
+		if(x<0){
+			throw new NegativeSquareRootException("NaN");
+		}
+		else{
+			return Math.sqrt(x);
+		}
 	}
 
 }
