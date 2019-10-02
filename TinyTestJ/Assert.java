@@ -14,8 +14,38 @@ public class Assert {
     }
   }
 
+  public static void assertEquals(String message, boolean expected, boolean actual) {
+    if (expected != actual) {
+      failNotEquals(message, Boolean.valueOf(expected), Boolean.valueOf(actual));
+    }
+  }
+
+  public static void assertEquals(String message, String expected, String actual) {
+    if (!expected.equals(actual)) {
+      failNotEquals(message, expected, actual);
+    }
+  }
+
+  public static void assertEquals(String message, int expected, int actual){
+    if(expected != actual){
+      failNotEquals(message, Integer.valueOf(expected), Integer.valueOf(actual));
+    }
+  }
+
   public static void assertEquals(double expected, double actual, double delta) {
      assertEquals(null, expected, actual, delta);
+  }
+
+  public static void assertEquals(boolean expected, boolean actual) {
+     assertEquals(null, expected, actual);
+  }
+
+  public static void assertEquals(String expected, String actual) {
+     assertEquals(null, expected, actual);
+  }
+
+  public static void assertEquals(int expected, int actual){
+    assertEquals(null, expected, actual);
   }
 
   // helper methods to format strings etc.

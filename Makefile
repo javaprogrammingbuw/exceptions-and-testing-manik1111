@@ -5,8 +5,7 @@ all: test
 %.class: %.java
 	javac $^
 
-test: Main.class TestSuite.class
-	java Main DollarToEuro 10000
+test: TestSuite.class
 	java TinyTestJ.RunTests TestSuite
 
 clean:
