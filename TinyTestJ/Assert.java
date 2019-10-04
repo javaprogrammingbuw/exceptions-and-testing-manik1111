@@ -13,6 +13,14 @@ public class Assert {
       failNotEquals(message, Double.valueOf(expected), Double.valueOf(actual));
     }
   }
+  public static void assertEquals(String message, String expected, String actual, double delta){
+    if(!expected.equals(actual)){
+      failNotEquals(message, expected, actual);
+    }
+  }
+  public static void assertEquals(String expected, String actual, double delta){
+    assertEquals(null, expected, actual, delta);
+  }
 
   public static void assertEquals(String message, boolean expected, boolean actual) {
     if (expected != actual) {
